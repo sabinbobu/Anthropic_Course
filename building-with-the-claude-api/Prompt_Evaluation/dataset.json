@@ -1,0 +1,14 @@
+[
+  {
+    "task": "Extract the AWS region from an S3 bucket ARN like 'arn:aws:s3:::my-bucket-us-east-1'",
+    "format": "regex"
+  },
+  {
+    "task": "Parse an AWS CloudWatch log entry and extract the timestamp, log level, and message",
+    "format": "python"
+  },
+  {
+    "task": "Create a JSON policy document that allows a principal to read objects from a specific S3 bucket",
+    "format": "json"
+  }
+]
