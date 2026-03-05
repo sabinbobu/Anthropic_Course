@@ -1,0 +1,51 @@
+[
+  {
+    "prompt_inputs": {
+      "content": "Recent advances in machine learning have revolutionized natural language processing, particularly through the development of transformer-based architectures that excel at sequence-to-sequence tasks. Within this broader field, neural machine translation has benefited significantly from attention mechanisms, enabling models to capture long-range dependencies in text. Additionally, sentiment analysis and text classification represent important applications of deep learning for NLP, while the underlying transformer architecture has also proven effective for computer vision tasks such as image classification and object detection, demonstrating the versatility of attention-based mechanisms across multiple domains of artificial intelligence."
+    },
+    "solution_criteria": [
+      "Extracts both broad topics (machine learning, natural language processing, computer vision, artificial intelligence) and specific subtopics (transformer architectures, attention mechanisms, neural machine translation, sentiment analysis, text classification, image classification, object detection)",
+      "Avoids extracting overly generic terms that lack substantive meaning (e.g., 'advances', 'development', 'applications')",
+      "Returns results as a valid JSON array of strings"
+    ],
+    "task_description": "\n    Extract topics out of a passage of text from a schorlarly article into a JSON array of strings\"\n    ",
+    "scenario": "Testing with a passage containing overlapping and hierarchical topics to verify extraction handles both general and specific concepts correctly"
+  },
+  {
+    "prompt_inputs": {
+      "content": "This study employed a mixed-methods approach combining quantitative proteomics analysis with qualitative interviews to investigate how cellular stress responses influence tumor microenvironment composition. We utilized mass spectrometry to identify differential expression of heat shock proteins and inflammatory cytokines across three cancer subtypes, revealing that HSP90 upregulation correlates with increased macrophage infiltration. Semi-structured interviews with oncologists revealed that clinicians often rely on morphological assessment rather than molecular markers when stratifying patients, highlighting a disconnect between bench research and clinical practice. Our findings suggest that targeting the NF-\u03baB pathway may simultaneously reduce tumor growth and reshape immune cell populations within the stroma."
+    },
+    "solution_criteria": [
+      "Extracts both explicitly stated topics (proteomics, cancer subtypes, heat shock proteins) and implicitly embedded topics revealed through methodology (mixed-methods research, clinical practice gaps, immune microenvironment)",
+      "Returns results as a valid JSON array of strings with no additional formatting or explanation",
+      "Captures methodological topics that indicate research domains (mass spectrometry, qualitative interviews) alongside scientific topics (tumor microenvironment, NF-\u03baB pathway)"
+    ],
+    "task_description": "\n    Extract topics out of a passage of text from a schorlarly article into a JSON array of strings\"\n    ",
+    "scenario": "Testing with a passage mixing explicit topic statements with implicit topics embedded in methodology descriptions to assess inference capability"
+  },
+  {
+    "prompt_inputs": {
+      "content": "Recent advances in CRISPR-Cas9 gene editing have revolutionized molecular biology research, particularly in addressing genetic disorders through precise DNA modifications. The mechanism involves single-guide RNA (sgRNA) complexes that direct the Cas9 endonuclease to target sequences with high specificity, achieving off-target effects below 0.1% in optimized protocols. Applications span from correcting mutations in sickle cell disease and \u03b2-thalassemia to developing CAR-T cell immunotherapies for hematologic malignancies. However, challenges remain in delivery mechanisms, particularly for in vivo applications where lipid nanoparticles (LNPs) and adeno-associated viruses (AAVs) show promise but face immunogenicity concerns. Epigenetic modifications through dCas9-based systems enable transient gene regulation without permanent DNA alterations, offering an alternative approach to CRISPR-mediated knockouts. The ethical implications of germline editing and the establishment of standardized off-target assessment protocols continue to shape regulatory frameworks across international bodies."
+    },
+    "solution_criteria": [
+      "Identifies all major technical terms and acronyms as distinct topics (CRISPR-Cas9, sgRNA, CAR-T cells, LNPs, AAVs, dCas9)",
+      "Captures both methodological topics (gene editing, delivery mechanisms, epigenetic modifications) and application domains (genetic disorders, immunotherapy)",
+      "Distinguishes between related but separate concepts (off-target effects, immunogenicity, ethical implications)",
+      "Returns results as a JSON array of strings"
+    ],
+    "task_description": "\n    Extract topics out of a passage of text from a schorlarly article into a JSON array of strings\"\n    ",
+    "scenario": "Testing with a dense passage containing domain-specific jargon and acronyms to ensure technical terminology is properly identified as distinct topics"
+  },
+  {
+    "prompt_inputs": {
+      "content": "The study examined neuroplasticity mechanisms through multiple experimental paradigms. Participants underwent functional MRI scans while performing motor learning tasks, revealing significant activation in the primary motor cortex and cerebellum. Concurrently, researchers measured synaptic density changes using electron microscopy, documenting increased dendritic spine formation after intensive training protocols. The investigation also explored how neurotransmitter systems, particularly dopamine and BDNF signaling pathways, facilitate adaptive reorganization. Additionally, behavioral assessments tracked skill acquisition improvements correlated with these neural changes. Long-term follow-up data indicated that consolidated motor memories persisted through maintained structural connectivity alterations in white matter tracts connecting cortical and subcortical regions."
+    },
+    "solution_criteria": [
+      "Aggregates scattered mentions of brain regions, imaging techniques, and molecular mechanisms into coherent topic categories",
+      "Captures all major concepts including neuroplasticity, motor learning, brain imaging, synaptic changes, and neurotransmitter systems",
+      "Produces a valid JSON array of strings representing distinct topics"
+    ],
+    "task_description": "\n    Extract topics out of a passage of text from a schorlarly article into a JSON array of strings\"\n    ",
+    "scenario": "Testing with a passage where topics are scattered across multiple sentences and paragraphs to verify the prompt can aggregate related concepts into coherent topic names"
+  }
+]
