@@ -1,0 +1,271 @@
+
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Prompt Evaluation Report</title>
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                line-height: 1.6;
+                margin: 0;
+                padding: 20px;
+                color: #333;
+            }
+            .header {
+                background-color: #f0f0f0;
+                padding: 20px;
+                border-radius: 5px;
+                margin-bottom: 20px;
+            }
+            .summary-stats {
+                display: flex;
+                justify-content: space-between;
+                flex-wrap: wrap;
+                gap: 10px;
+            }
+            .stat-box {
+                background-color: #fff;
+                border-radius: 5px;
+                padding: 15px;
+                box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+                flex-basis: 30%;
+                min-width: 200px;
+            }
+            .stat-value {
+                font-size: 24px;
+                font-weight: bold;
+                margin-top: 5px;
+            }
+            table {
+                width: 100%;
+                border-collapse: collapse;
+                margin-top: 20px;
+            }
+            th {
+                background-color: #4a4a4a;
+                color: white;
+                text-align: left;
+                padding: 12px;
+            }
+            td {
+                padding: 10px;
+                border-bottom: 1px solid #ddd;
+                vertical-align: top;
+            }
+            tr:nth-child(even) {
+                background-color: #f9f9f9;
+            }
+            .output-cell {
+                white-space: pre-wrap;
+            }
+            .score {
+                font-weight: bold;
+                padding: 5px 10px;
+                border-radius: 3px;
+                display: inline-block;
+            }
+            .score-high {
+                background-color: #c8e6c9;
+                color: #2e7d32;
+            }
+            .score-medium {
+                background-color: #fff9c4;
+                color: #f57f17;
+            }
+            .score-low {
+                background-color: #ffcdd2;
+                color: #c62828;
+            }
+            .output {
+                overflow: auto;
+                white-space: pre-wrap;
+            }
+
+            .output pre {
+                background-color: #f5f5f5;
+                border: 1px solid #ddd;
+                border-radius: 4px;
+                padding: 10px;
+                margin: 0;
+                font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+                font-size: 14px;
+                line-height: 1.4;
+                color: #333;
+                box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+                overflow-x: auto;
+                white-space: pre-wrap; 
+                word-wrap: break-word; 
+            }
+
+            td {
+                width: 20%;
+            }
+            .score-col {
+                width: 80px;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="header">
+            <h1>Prompt Evaluation Report</h1>
+            <div class="summary-stats">
+                <div class="stat-box">
+                    <div>Total Test Cases</div>
+                    <div class="stat-value">4</div>
+                </div>
+                <div class="stat-box">
+                    <div>Average Score</div>
+                    <div class="stat-value">8.8 / 10</div>
+                </div>
+                <div class="stat-box">
+                    <div>Pass Rate (≥7)</div>
+                    <div class="stat-value">100.0%</div>
+                </div>
+            </div>
+        </div>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Scenario</th>
+                    <th>Prompt Inputs</th>
+                    <th>Solution Criteria</th>
+                    <th>Output</th>
+                    <th>Score</th>
+                    <th>Reasoning</th>
+                </tr>
+            </thead>
+            <tbody>
+    
+            <tr>
+                <td>Testing with a passage containing overlapping and hierarchical topics to verify extraction handles both general and specific concepts correctly</td>
+                <td class="prompt-inputs"><strong>content:</strong> Recent advances in machine learning have revolutionized natural language processing, particularly through the development of transformer-based architectures that excel at sequence-to-sequence tasks. Within this broader field, neural machine translation has benefited significantly from attention mechanisms, enabling models to capture long-range dependencies in text. Additionally, sentiment analysis and text classification represent important applications of deep learning for NLP, while the underlying transformer architecture has also proven effective for computer vision tasks such as image classification and object detection, demonstrating the versatility of attention-based mechanisms across multiple domains of artificial intelligence.</td>
+                <td class="criteria">• Extracts both broad topics (machine learning, natural language processing, computer vision, artificial intelligence) and specific subtopics (transformer architectures, attention mechanisms, neural machine translation, sentiment analysis, text classification, image classification, object detection)<br>• Avoids extracting overly generic terms that lack substantive meaning (e.g., 'advances', 'development', 'applications')<br>• Returns results as a valid JSON array of strings</td>
+                <td class="output"><pre>```json
+[
+  "machine learning",
+  "natural language processing",
+  "transformer-based architectures",
+  "sequence-to-sequence tasks",
+  "neural machine translation",
+  "attention mechanisms",
+  "long-range dependencies",
+  "sentiment analysis",
+  "text classification",
+  "deep learning",
+  "computer vision",
+  "image classification",
+  "object detection",
+  "artificial intelligence"
+]
+```</pre></td>
+                <td class="score-col"><span class="score score-high">9</span></td>
+                <td class="reasoning">The solution fully satisfies all mandatory requirements: it contains a valid JSON array of strings with topics only, no extra commentary, and returns only the JSON array. It also meets the secondary criteria by extracting both broad and specific topics while avoiding generic terms. The extraction is comprehensive and well-balanced. The only minor concern is whether 'long-range dependencies' qualifies as a topic versus a technical characteristic, but this is a marginal issue that doesn't significantly detract from an otherwise excellent extraction.</td>
+            </tr>
+        
+            <tr>
+                <td>Testing with a passage mixing explicit topic statements with implicit topics embedded in methodology descriptions to assess inference capability</td>
+                <td class="prompt-inputs"><strong>content:</strong> This study employed a mixed-methods approach combining quantitative proteomics analysis with qualitative interviews to investigate how cellular stress responses influence tumor microenvironment composition. We utilized mass spectrometry to identify differential expression of heat shock proteins and inflammatory cytokines across three cancer subtypes, revealing that HSP90 upregulation correlates with increased macrophage infiltration. Semi-structured interviews with oncologists revealed that clinicians often rely on morphological assessment rather than molecular markers when stratifying patients, highlighting a disconnect between bench research and clinical practice. Our findings suggest that targeting the NF-κB pathway may simultaneously reduce tumor growth and reshape immune cell populations within the stroma.</td>
+                <td class="criteria">• Extracts both explicitly stated topics (proteomics, cancer subtypes, heat shock proteins) and implicitly embedded topics revealed through methodology (mixed-methods research, clinical practice gaps, immune microenvironment)<br>• Returns results as a valid JSON array of strings with no additional formatting or explanation<br>• Captures methodological topics that indicate research domains (mass spectrometry, qualitative interviews) alongside scientific topics (tumor microenvironment, NF-κB pathway)</td>
+                <td class="output"><pre>```json
+[
+  "mixed-methods approach",
+  "proteomics analysis",
+  "qualitative interviews",
+  "cellular stress responses",
+  "tumor microenvironment",
+  "mass spectrometry",
+  "heat shock proteins",
+  "inflammatory cytokines",
+  "cancer subtypes",
+  "HSP90 upregulation",
+  "macrophage infiltration",
+  "oncologists",
+  "morphological assessment",
+  "molecular markers",
+  "patient stratification",
+  "bench research",
+  "clinical practice",
+  "NF-κB pathway",
+  "tumor growth",
+  "immune cell populations",
+  "tumor stroma"
+]
+```</pre></td>
+                <td class="score-col"><span class="score score-high">9</span></td>
+                <td class="reasoning">The solution fully satisfies all mandatory requirements: it is a valid JSON array of strings containing topics from the passage with no extra commentary or formatting. It meets the secondary criteria by capturing both explicit topics (proteomics, cancer subtypes, heat shock proteins) and implicit methodological topics (mixed-methods research, clinical practice gaps). The solution includes both methodological domains (mass spectrometry, qualitative interviews) and scientific topics (tumor microenvironment, NF-κB pathway). While there are minor opportunities for refinement in granularity and completeness of implicit topic extraction, the solution demonstrates strong comprehension of the passage and appropriate topic extraction.</td>
+            </tr>
+        
+            <tr>
+                <td>Testing with a dense passage containing domain-specific jargon and acronyms to ensure technical terminology is properly identified as distinct topics</td>
+                <td class="prompt-inputs"><strong>content:</strong> Recent advances in CRISPR-Cas9 gene editing have revolutionized molecular biology research, particularly in addressing genetic disorders through precise DNA modifications. The mechanism involves single-guide RNA (sgRNA) complexes that direct the Cas9 endonuclease to target sequences with high specificity, achieving off-target effects below 0.1% in optimized protocols. Applications span from correcting mutations in sickle cell disease and β-thalassemia to developing CAR-T cell immunotherapies for hematologic malignancies. However, challenges remain in delivery mechanisms, particularly for in vivo applications where lipid nanoparticles (LNPs) and adeno-associated viruses (AAVs) show promise but face immunogenicity concerns. Epigenetic modifications through dCas9-based systems enable transient gene regulation without permanent DNA alterations, offering an alternative approach to CRISPR-mediated knockouts. The ethical implications of germline editing and the establishment of standardized off-target assessment protocols continue to shape regulatory frameworks across international bodies.</td>
+                <td class="criteria">• Identifies all major technical terms and acronyms as distinct topics (CRISPR-Cas9, sgRNA, CAR-T cells, LNPs, AAVs, dCas9)<br>• Captures both methodological topics (gene editing, delivery mechanisms, epigenetic modifications) and application domains (genetic disorders, immunotherapy)<br>• Distinguishes between related but separate concepts (off-target effects, immunogenicity, ethical implications)<br>• Returns results as a JSON array of strings</td>
+                <td class="output"><pre>```json
+[
+  "CRISPR-Cas9 gene editing",
+  "Molecular biology",
+  "Genetic disorders",
+  "DNA modifications",
+  "Single-guide RNA (sgRNA)",
+  "Cas9 endonuclease",
+  "Off-target effects",
+  "Sickle cell disease",
+  "β-thalassemia",
+  "CAR-T cell immunotherapy",
+  "Hematologic malignancies",
+  "Gene delivery mechanisms",
+  "In vivo applications",
+  "Lipid nanoparticles (LNPs)",
+  "Adeno-associated viruses (AAVs)",
+  "Immunogenicity",
+  "Epigenetic modifications",
+  "dCas9",
+  "Gene regulation",
+  "CRISPR-mediated knockouts",
+  "Germline editing",
+  "Off-target assessment protocols",
+  "Regulatory frameworks"
+]
+```</pre></td>
+                <td class="score-col"><span class="score score-high">8</span></td>
+                <td class="reasoning">The solution fully satisfies all mandatory requirements: it is a valid JSON array of strings containing topics from the article with no extraneous commentary. It performs excellently against the secondary criteria by identifying all major technical terms, acronyms, and methodological approaches. The extraction is thorough and well-organized. However, there is one notable omission: 'ethical implications' is explicitly discussed in the passage as a key topic shaping regulatory frameworks, yet it is not included in the extracted topics. This represents a gap in comprehensiveness. The solution captures approximately 95% of the substantive topics in the passage, with the main deficiency being the missing ethical implications topic.</td>
+            </tr>
+        
+            <tr>
+                <td>Testing with a passage where topics are scattered across multiple sentences and paragraphs to verify the prompt can aggregate related concepts into coherent topic names</td>
+                <td class="prompt-inputs"><strong>content:</strong> The study examined neuroplasticity mechanisms through multiple experimental paradigms. Participants underwent functional MRI scans while performing motor learning tasks, revealing significant activation in the primary motor cortex and cerebellum. Concurrently, researchers measured synaptic density changes using electron microscopy, documenting increased dendritic spine formation after intensive training protocols. The investigation also explored how neurotransmitter systems, particularly dopamine and BDNF signaling pathways, facilitate adaptive reorganization. Additionally, behavioral assessments tracked skill acquisition improvements correlated with these neural changes. Long-term follow-up data indicated that consolidated motor memories persisted through maintained structural connectivity alterations in white matter tracts connecting cortical and subcortical regions.</td>
+                <td class="criteria">• Aggregates scattered mentions of brain regions, imaging techniques, and molecular mechanisms into coherent topic categories<br>• Captures all major concepts including neuroplasticity, motor learning, brain imaging, synaptic changes, and neurotransmitter systems<br>• Produces a valid JSON array of strings representing distinct topics</td>
+                <td class="output"><pre>```json
+[
+  "neuroplasticity mechanisms",
+  "functional MRI",
+  "motor learning tasks",
+  "primary motor cortex",
+  "cerebellum",
+  "synaptic density",
+  "electron microscopy",
+  "dendritic spine formation",
+  "training protocols",
+  "neurotransmitter systems",
+  "dopamine signaling",
+  "BDNF signaling pathways",
+  "adaptive reorganization",
+  "behavioral assessments",
+  "skill acquisition",
+  "motor memories",
+  "structural connectivity",
+  "white matter tracts",
+  "cortical and subcortical regions"
+]
+```</pre></td>
+                <td class="score-col"><span class="score score-high">9</span></td>
+                <td class="reasoning">The solution fully satisfies all mandatory requirements: it is a valid JSON array containing only strings with topics, no extra commentary, and nothing else in the response. It captures all major concepts from the passage including neuroplasticity, motor learning, brain imaging techniques, synaptic mechanisms, and neurotransmitter systems. The extraction is thorough and accurate. While the secondary criteria regarding aggregation into coherent categories could be slightly improved (some related items like dopamine and BDNF signaling could be grouped), the solution still effectively organizes the topics and meets the spirit of the aggregation requirement. The topics are distinct and well-chosen from the source material.</td>
+            </tr>
+        
+            </tbody>
+        </table>
+    </body>
+    </html>
+    

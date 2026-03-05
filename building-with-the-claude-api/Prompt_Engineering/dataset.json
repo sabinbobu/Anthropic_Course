@@ -1,0 +1,50 @@
+[
+  {
+    "prompt_inputs": {
+      "height": "180 cm",
+      "weight": "72 kg",
+      "goal": "Carbohydrate loading for marathon race tomorrow with high caloric intake (3500+ calories)",
+      "restrictions": "Vegetarian, no nuts or tree nuts"
+    },
+    "solution_criteria": [
+      "Meal plan contains exactly 1 day of meals (breakfast, lunch, dinner, snacks)",
+      "Total daily calories meet or exceed 3500 calories",
+      "Carbohydrates comprise at least 65% of total calories for endurance loading",
+      "All meals and foods are vegetarian and nut-free as specified"
+    ],
+    "task_description": "Write a compact, concise 1 day meal plan for a single athlete",
+    "scenario": "Testing with a elite endurance athlete (marathon runner) requiring high caloric intake and carbohydrate loading before a major race event"
+  },
+  {
+    "prompt_inputs": {
+      "height": "180 cm",
+      "weight": "85 kg",
+      "goal": "Maximize strength and muscle gain for weightlifting competition in 8 weeks",
+      "restrictions": "No shellfish allergy"
+    },
+    "solution_criteria": [
+      "Meal plan covers all 3 meals plus 1-2 snacks with high protein content (minimum 25g protein per meal)",
+      "Includes pre-training and post-training nutrition timing around a typical weightlifting session",
+      "Macronutrient distribution supports strength/power goals (approximately 2.2g protein per kg bodyweight daily)",
+      "Plan is concise and formatted for a single day only"
+    ],
+    "task_description": "Write a compact, concise 1 day meal plan for a single athlete",
+    "scenario": "Testing with a strength/power athlete (weightlifter) needing protein-focused meals and specific macronutrient timing around training sessions"
+  },
+  {
+    "prompt_inputs": {
+      "height": "183 cm",
+      "weight": "78 kg",
+      "goal": "Optimize performance and recovery for a competitive soccer match with kickoff at 3 PM",
+      "restrictions": "Vegetarian, no nuts"
+    },
+    "solution_criteria": [
+      "Meal plan covers breakfast, pre-match meal, and post-match recovery with appropriate timing relative to 3 PM kickoff",
+      "Includes adequate hydration strategy throughout the day with specific fluid recommendations",
+      "Balances carbohydrates for sustained energy, protein for recovery, and micronutrients appropriate for a 78 kg athlete",
+      "All foods comply with vegetarian and nut-free restrictions"
+    ],
+    "task_description": "Write a compact, concise 1 day meal plan for a single athlete",
+    "scenario": "Testing with a sport with mixed demands (soccer player) requiring balanced nutrition with emphasis on recovery, hydration, and sustained energy throughout game day"
+  }
+]
