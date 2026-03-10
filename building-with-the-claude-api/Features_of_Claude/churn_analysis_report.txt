@@ -1,0 +1,152 @@
+====================================================================================================
+STREAMING SERVICE CHURN ANALYSIS - EXECUTIVE SUMMARY
+====================================================================================================
+
+OVERVIEW
+----------------------------------------------------------------------------------------------------
+Total Customers: 500
+Churned: 193 (38.6%)
+Retained: 307 (61.4%)
+
+====================================================================================================
+TOP 5 CHURN DRIVERS (by Feature Importance)
+====================================================================================================
+
+1. TotalViewingHoursLastMonth: 0.2702
+   → Churned customers watch 20.0% LESS content (66.6 vs 83.2 hours/month)
+   → Low engagement (<67 hours/month) is a strong churn predictor
+
+2. AverageSessionDurationMinutes: 0.1642
+   → Churned customers have 14.4% SHORTER sessions (49.4 vs 57.8 minutes)
+   → Indicates lower content satisfaction/engagement
+
+3. NumberOfUniqueTitlesWatchedLastMonth: 0.1572
+   → Churned customers explore 18.1% FEWER titles (19.5 vs 23.7 titles)
+   → Limited content discovery may signal poor content fit
+
+4. CustomerServiceInteractionsLastYear: 0.1288
+   → Churned customers have 27.7% MORE CS interactions (3.18 vs 2.49 per year)
+   → Frequent support contacts may indicate unresolved issues/dissatisfaction
+
+5. BingeWatchingSessionsLastMonth: 0.1056
+   → Churned customers have 19.7% FEWER binge sessions (6.2 vs 7.7)
+   → Binge-watching is associated with higher engagement and retention
+
+====================================================================================================
+SUBSCRIPTION TIER ANALYSIS
+====================================================================================================
+
+Basic Tier:
+   Churn Rate: 43.0%
+   Customers: 207 (90 churned)
+   Avg Viewing: 70.6 hours/month
+   Monthly Cost: $7.99
+
+Standard Tier:
+   Churn Rate: 40.0%
+   Customers: 210 (83 churned)
+   Avg Viewing: 80.6 hours/month
+   Monthly Cost: $12.99
+
+Premium Tier:
+   Churn Rate: 24.0%
+   Customers: 83 (20 churned)
+   Avg Viewing: 82.7 hours/month
+   Monthly Cost: $17.99
+
+KEY INSIGHT: Premium tier has 1.8x LOWER churn than Basic tier
+
+====================================================================================================
+CONTENT GENRE ANALYSIS
+====================================================================================================
+
+High-Risk Genres (>40% churn):
+   • Horror: 52.3% (n=44)
+   • Thriller: 48.3% (n=29)
+   • Action: 44.6% (n=74)
+   • Romance: 41.8% (n=55)
+   • SciFi: 40.5% (n=42)
+
+Low-Risk Genres (<35% churn):
+   • Comedy: 33.0% (n=100)
+   • Documentary: 25.9% (n=54)
+
+====================================================================================================
+CUSTOMER SERVICE INTERACTION PATTERNS
+====================================================================================================
+
+0 interactions: 0.0% churn rate (n=8)
+1 interactions: 27.3% churn rate (n=66)
+2 interactions: 24.8% churn rate (n=137)
+3 interactions: 40.7% churn rate (n=162)
+4 interactions: 56.7% churn rate (n=90)
+5 interactions: 62.1% churn rate (n=29)
+6 interactions: 75.0% churn rate (n=8)
+
+====================================================================================================
+HIGH-RISK CUSTOMER SEGMENTS
+====================================================================================================
+
+Segment 1: Low Engagement + High CS Interactions
+   Criteria: <67 hours/month viewing AND ≥3 CS interactions
+   Size: 181 customers (36.2% of total)
+   Churn Rate: 50.8% (1.3x higher than average)
+
+Segment 2: Basic Tier + Low Engagement
+   Criteria: Basic subscription AND <70 hours/month viewing
+   Size: 105 customers (21.0% of total)
+   Churn Rate: 53.3% (1.4x higher than average)
+
+====================================================================================================
+STRATEGIC RECOMMENDATIONS
+====================================================================================================
+
+1. ENGAGEMENT IMPROVEMENT (Priority: CRITICAL)
+   • Problem: Churned customers have 20% lower viewing hours
+   • Actions:
+     - Implement personalized content recommendations for low-engagement users
+     - Create targeted email campaigns highlighting new content in preferred genres
+     - Develop 'binge-worthy' content collections to boost session duration
+     - Set engagement thresholds (<67 hrs/month) to trigger retention campaigns
+
+2. CUSTOMER SERVICE OPTIMIZATION (Priority: HIGH)
+   • Problem: Higher CS interactions correlate with 28% higher churn
+   • Actions:
+     - Analyze root causes of customer support tickets
+     - Implement proactive outreach after 2+ support interactions
+     - Improve self-service resources to reduce friction
+     - Track resolution satisfaction scores
+
+3. PREMIUM TIER MIGRATION (Priority: HIGH)
+   • Problem: Basic tier has 43.5% churn vs 24.1% for Premium
+   • Actions:
+     - Offer time-limited upgrade promotions for at-risk Basic users
+     - Highlight Premium benefits (better quality, more devices, exclusive content)
+     - Create 'Standard' tier conversion pathway with trial periods
+
+4. CONTENT STRATEGY (Priority: MEDIUM)
+   • Problem: Horror/Thriller genres show >48% churn rates
+   • Actions:
+     - Expand Documentary and Comedy content libraries (lowest churn)
+     - Cross-promote genres to diversify viewing habits
+     - Survey Horror/Thriller fans to understand content gaps
+
+5. EARLY WARNING SYSTEM (Priority: CRITICAL)
+   • Implement predictive churn model monitoring:
+     - Weekly scoring of all active customers
+     - Automated alerts for high-risk segments
+     - Targeted retention offers (discounts, exclusive content)
+     - A/B test different intervention strategies
+
+====================================================================================================
+EXPECTED IMPACT
+====================================================================================================
+
+Current monthly churn cost (assuming $12 avg LTV per customer): $2316.00
+
+Potential improvements:
+  • 10% churn reduction → Save 19 customers/month → $231.60/month
+  • 20% churn reduction → Save 38 customers/month → $463.20/month
+  • 30% churn reduction → Save 57 customers/month → $694.80/month
+
+====================================================================================================
